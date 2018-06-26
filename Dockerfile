@@ -1,8 +1,8 @@
 FROM centos:7
 LABEL maintainer="cyrill.kulka@gmail.com"
 
-ENV RC_INSTALLER    RhodeCode-installer-linux-build20180517_1100
-ENV RC_CHECKSUM     36d45b569511b7373e408a1c804c7140bcfb3f8c75f1d22eb7ee4e9c2103bd16
+ENV RC_INSTALLER    RhodeCode-installer-linux-build20180618_1200
+ENV RC_CHECKSUM     9988eaef60489b624db9f7d2e43e9f4abf3c55907b5104c3cf191f14fb538cc8
 
 # Create the RhodeCode user
 RUN useradd rhodecode -u 1000 -s /sbin/nologin				\
@@ -23,5 +23,5 @@ RUN curl -so $RC_INSTALLER https://dls-eu.rhodecode.com/dls/NzA2MjdhN2E2ODYxNzY2
 		&& rm $RC_INSTALLER
 
 # Add additional tools
-COPY --chown=rhodecode:rhodecode files .
+COPY files .
 RUN  chmod 755 *.sh
