@@ -12,6 +12,11 @@ RUN useradd rhodecode -u 1000 -s /sbin/nologin				\
 		&& curl -so /usr/local/bin/crudini https://raw.githubusercontent.com/pixelb/crudini/0.9/crudini \
 		&& chmod +x /usr/local/bin/crudini
 
+# Add additional tools, whilst it is possible for root to perform this task
+COPY files .
+RUN chmod 755 *.sh \
+		&& chown rhodecode:rhodecode *.sh
+
 USER rhodecode
 WORKDIR /home/rhodecode
 
@@ -21,7 +26,3 @@ RUN curl -so $RC_INSTALLER https://dls-eu.rhodecode.com/dls/NzA2MjdhN2E2ODYxNzY2
 		&& chmod 755 $RC_INSTALLER								\
 		&& ./$RC_INSTALLER --accept-license						\
 		&& rm $RC_INSTALLER
-
-# Add additional tools
-COPY files .
-RUN  chmod 755 *.sh
