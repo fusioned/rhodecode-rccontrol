@@ -13,9 +13,9 @@ RUN useradd rhodecode -u 1000 -s /sbin/nologin				\
 		&& chmod +x /usr/local/bin/crudini
 
 # Add additional tools, whilst it is possible for root to perform this task
-COPY files .
-RUN chmod 755 *.sh \
-		&& chown rhodecode:rhodecode *.sh
+COPY files /home/rhodecode/
+RUN chmod 755 /home/rhodecode/*.sh \
+		&& chown rhodecode:rhodecode /home/rhodecode/*.sh
 
 USER rhodecode
 WORKDIR /home/rhodecode
