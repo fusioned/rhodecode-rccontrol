@@ -1,8 +1,8 @@
 FROM centos:7
 LABEL maintainer="cyrill.kulka@gmail.com"
 
-ENV RC_INSTALLER    RhodeCode-installer-linux-build20180618_1200
-ENV RC_CHECKSUM     9988eaef60489b624db9f7d2e43e9f4abf3c55907b5104c3cf191f14fb538cc8
+ENV RC_INSTALLER    RhodeCode-installer-linux-build20180716_1700
+ENV RC_CHECKSUM     2ceb8624d02e74efff569ff5aa72e262567475c8a5650bf14f9dce0ed5e022b2
 
 # Create the RhodeCode user
 RUN useradd rhodecode -u 1000 -s /sbin/nologin				\
